@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <title>Инфо 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Маълумоти пурра дар бораи Фото 1</h1>
+<p>  #include <WiFi.h>
+
+
+const char* ssid = "ESP32-LED"; 
+const char* password = "12345678"; 
+
+WiFiServer server(80); 
+const int ledPin = 2;  
+void setup() {
+  Serial.begin(115200);
+
+ 
+  pinMode(ledPin, OUTPUT);
+
+ 
+  WiFi.softAP(ssid, password);
+
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("Access Point IP: ");
+  Serial.println(IP);
+
+  server.begin();
+}
+
+void loop() {
+  WiFiClient client = server.available(); 
+  if (client) {
+    Serial.println("New Client Connected.");
+    String currentLine = "";
+
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+        if (c == '\n') {
+          if (currentLine.length() == 0) {
+           
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+
+            client.println("<h1>ESP32 LED Control</h1>");
+            client.println("<p><a href=\"/LED_ON\">Turn LED ON</a></p>");
+            client.println("<p><a href=\"/LED_OFF\">Turn LED OFF</a></p>");
+
+            client.println();
+            break;
+          } else {
+            if (currentLine.indexOf("GET /LED_ON") >= 0) {
+              digitalWrite(ledPin, HIGH);
+            }
+            if (currentLine.indexOf("GET /LED_OFF") >= 0) {
+              digitalWrite(ledPin, LOW);
+            }
+            currentLine = "";
+          }
+        } else if (c != '\r') {
+          currentLine += c;
+        }
+      }
+    }
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+}  </p>
+
+</body>
+</html>

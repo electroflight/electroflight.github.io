@@ -74,6 +74,7 @@ void setup() {
   // Serve the web page
   server.on("/", HTTP_GET, []() {
     server.send(200, "text/html", R"rawliteral(
+  <pre>
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -125,6 +126,7 @@ void setup() {
         </div>
       </body>
       </html>
+    <pre>
     )rawliteral");
   });
 
@@ -147,6 +149,7 @@ void flashLed(int pin) {
   delay(100); // Stay ON for 100ms
   digitalWrite(pin, LOW);
 }
+
 
 
 </pre>

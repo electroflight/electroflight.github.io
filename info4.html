@@ -35,10 +35,11 @@
 
 <h2>Project code</h2>
 
+<pre>
+
 <pre><code>
-function sayHello() {
-  alert("#include <WiFi.h>
-#include <WebServer.h>
+#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
 
 // WiFi Access Point name and password
 const char* ssid = "ESP32-Access-Point";
@@ -74,13 +75,13 @@ void setup() {
 
   // Serve the web page
   server.on("/", HTTP_GET, []() {
-    server.send(200, "text/html", R"rawliteral(
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <title>LED Control</title>
-        <style>
+    server.send(200, "text/html", R&quot;rawliteral(
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang=&quot;en&quot;&gt;
+      &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;LED Control&lt;/title&gt;
+        &lt;style&gt;
           body {
             display: flex;
             flex-direction: column;
@@ -106,27 +107,27 @@ void setup() {
           .down { background-color: yellow; color: black; }
           .left { background-color: green; }
           .right { background-color: blue; }
-        </style>
-        <script>
+        &lt;/style&gt;
+        &lt;script&gt;
           function sendRequest(path) {
             fetch(path);
           }
-        </script>
-      </head>
-      <body>
-        <div class="row">
-          <button class="up" onmousedown="sendRequest('/flash/up')">&#8593;</button>
-        </div>
-        <div class="row">
-          <button class="left" onmousedown="sendRequest('/flash/left')">&#8592;</button>
-          <button class="right" onmousedown="sendRequest('/flash/right')">&#8594;</button>
-        </div>
-        <div class="row">
-          <button class="down" onmousedown="sendRequest('/flash/down')">&#8595;</button>
-        </div>
-      </body>
-      </html>
-    )rawliteral");
+        &lt;/script&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;button class=&quot;up&quot; onmousedown=&quot;sendRequest('/flash/up')&quot;&gt;&amp;#8593;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;button class=&quot;left&quot; onmousedown=&quot;sendRequest('/flash/left')&quot;&gt;&amp;#8592;&lt;/button&gt;
+          &lt;button class=&quot;right&quot; onmousedown=&quot;sendRequest('/flash/right')&quot;&gt;&amp;#8594;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;button class=&quot;down&quot; onmousedown=&quot;sendRequest('/flash/down')&quot;&gt;&amp;#8595;&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+    )rawliteral&quot;);
   });
 
   // Handle LED flash routes
@@ -147,9 +148,9 @@ void flashLed(int pin) {
   digitalWrite(pin, HIGH);
   delay(100); // Stay ON for 100ms
   digitalWrite(pin, LOW);
-}");
 }
 </code></pre>
+</pre>
 
 </body>
 </html>

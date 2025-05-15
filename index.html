@@ -53,11 +53,38 @@
     <p>Photo 6</p>
   </div>
 </main>
-<section id="comments" style="margin-top: 40px;">
-  <h2>Leave your comment</h2>
-  <<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSck2uRgy3Bfy768qIexqfgvvr88XikV7jAlXyobkHyaefFueg/viewform?embedded=true" width="640" height="406" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true"
-          width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-</section>
+<div style="margin-top: 40px;">
+  <h3>Leave a Comment</h3>
+  <input type="text" id="commentInput" placeholder="Write your comment..." style="width: 80%;" />
+  <button onclick="addComment()">Submit</button>
+  <ul id="commentList" style="margin-top: 20px;"></ul>
+</div>
+
+<script>
+  function addComment() {
+    const input = document.getElementById('commentInput');
+    const comment = input.value.trim();
+    if (comment) {
+      const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+      comments.push(comment);
+      localStorage.setItem('comments', JSON.stringify(comments));
+      input.value = '';
+      loadComments();
+    }
+  }
+
+  function loadComments() {
+    const commentList = document.getElementById('commentList');
+    commentList.innerHTML = '';
+    const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+    comments.forEach(c => {
+      const li = document.createElement('li');
+      li.textContent = c;
+      commentList.appendChild(li);
+    });
+  }
+
+  loadComments();
+</script>
 </section>
 </html>

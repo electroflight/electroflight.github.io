@@ -59,32 +59,4 @@
   <button onclick="addComment()">Submit</button>
   <ul id="commentList" style="margin-top: 20px;"></ul>
 </div>
-
-<script>
-  function addComment() {
-    const input = document.getElementById('commentInput');
-    const comment = input.value.trim();
-    if (comment) {
-      const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-      comments.push(comment);
-      localStorage.setItem('comments', JSON.stringify(comments));
-      input.value = '';
-      loadComments();
-    }
-  }
-
-  function loadComments() {
-    const commentList = document.getElementById('commentList');
-    commentList.innerHTML = '';
-    const comments = JSON.parse(localStorage.getItem('comments') || '[]');
-    comments.forEach(c => {
-      const li = document.createElement('li');
-      li.textContent = c;
-      commentList.appendChild(li);
-    });
-  }
-
-  loadComments();
-</script>
-</section>
 </html>

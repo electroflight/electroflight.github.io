@@ -46,6 +46,7 @@
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET    -1
+
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #define TRIG_PIN 9
@@ -54,16 +55,15 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 void setup() {
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
-  
-  Serial.begin(9600);
 
+  Serial.begin(9600);
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
     Serial.println(F("OLED Not Found"));
     while (true);
   }
 
   display.clearDisplay();
-  display.setTextSize(2); // Калон кардани рақам
+  display.setTextSize(2); // Increase text size for numbers
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
   display.display();
@@ -84,7 +84,7 @@ void loop() {
 
   display.clearDisplay();
   display.setCursor(0, 0);
-  display.print(distance_cm, 1); // 1 рақами пас аз нуқта
+  display.print(distance_cm, 1); // 1 digit after the decimal point
   display.print(" cm");
   display.display();
 

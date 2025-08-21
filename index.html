@@ -4,54 +4,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ElectroFlight Projects</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.jpg" type="image/png">
+  <style>
+    :root{
+      --grad-1:#19baff;
+      --grad-2:#7c4dff;
+      --grad-3:#00ffa8;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(800px 600px at 80% -10%, #1c1f5a66 0%, #0000 60%),
+        radial-gradient(700px 500px at -20% 10%, #0f4f5f66 0%, #0000 60%),
+        radial-gradient(600px 400px at 50% 100%, #14224d80 0%, #0000 60%),
+        linear-gradient(180deg, #0e1330, #0b1020);
+      color: #eaf1ff;
+    }
+
+    header {
+      position: relative;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      z-index: 2;
+    }
+
+    .logo img {
+      height: 60px;
+      filter: drop-shadow(0 0 12px var(--grad-1)) drop-shadow(0 0 20px var(--grad-2));
+    }
+
+    .curve {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+      border-bottom-left-radius: 50% 20px;
+      border-bottom-right-radius: 50% 20px;
+      box-shadow: 0 0 25px #19baff66;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 60px 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-item {
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow:
+        0 0 20px #7c4dff66,
+        0 0 40px #19baff33;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 0 30px #7c4dff99,
+        0 0 60px #19baff66;
+    }
+
+    .gallery-item p {
+      margin-top: 12px;
+      font-size: 16px;
+      color: #cfd8ff;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo" />
+    </div>
+    <div class="curve"></div>
+  </header>
 
-<header>
-  <div class="logo">
-    <img src="logo.jpg" alt="Logo" />
-  </div>
-  <div class="curve"></div>
-</header>
-
-<main class="gallery">
-  <div class="gallery-item">
-    <a href="info1.html" target="_blank">
-      <img src="photo1.jpg" alt="Photo 1">
-    </a>
-    <p>Project Code</p>
-  </div>
-  <div class="gallery-item">
-    <a href="info2.html" target="_blank">
-      <img src="photo2.jpg" alt="Photo 2">
-    </a>
-    <p>Project Code</p>
-  </div>
-  <div class="gallery-item">
-    <a href="info3.html" target="_blank">
-      <img src="photo3.jpg" alt="Photo 3">
-    </a>
-    <p>Project Code</p>
-  </div>
-  <div class="gallery-item">
-    <a href="info4.html" target="_blank">
-      <img src="photo4.jpg" alt="Photo 4">
-    </a>
-    <p>Project Code</p>
-  </div>
-  <div class="gallery-item">
-    <a href="info5.html" target="_blank">
-      <img src="photo5.jpg" alt="Photo 5">
-    </a>
-    <p>Project Code</p>
-  </div>
-  <div class="gallery-item">
-    <a href="info6.html" target="_blank">
-      <img src="photo6.jpg" alt="Photo 6">
-    </a>
-    <p>Project Code</p>
-  </div>
-</main>
+  <main class="gallery">
+    <div class="gallery-item">
+      <a href="info1.html" target="_blank">
+        <img src="photo1.jpg" alt="Photo 1">
+      </a>
+      <p>Project Code</p>
+    </div>
+    <div class="gallery-item">
+      <a href="info2.html" target="_blank">
+        <img src="photo2.jpg" alt="Photo 2">
+      </a>
+      <p>Project Code</p>
+    </div>
+    <div class="gallery-item">
+      <a href="info3.html" target="_blank">
+        <img src="photo3.jpg" alt="Photo 3">
+      </a>
+      <p>Project Code</p>
+    </div>
+    <div class="gallery-item">
+      <a href="info4.html" target="_blank">
+        <img src="photo4.jpg" alt="Photo 4">
+      </a>
+      <p>Project Code</p>
+    </div>
+    <div class="gallery-item">
+      <a href="info5.html" target="_blank">
+        <img src="photo5.jpg" alt="Photo 5">
+      </a>
+      <p>Project Code</p>
+    </div>
+    <div class="gallery-item">
+      <a href="info6.html" target="_blank">
+        <img src="photo6.jpg" alt="Photo 6">
+      </a>
+      <p>Project Code</p>
+    </div>
+  </main>
+</body>
 </html>

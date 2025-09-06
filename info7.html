@@ -36,10 +36,13 @@
 <body>
 
   <div class="image-container">
-    <img src="photo7.jpg" alt="photo">
+    <img src="photo7.jpg" alt="Акс">
   </div>
 
   <h2>Project code</h2>
+
+  <h3>Code for Arduino Uno</h3>
+  <pre>
 int ledPins[] = {8, 9, 10, 11, 12};  // Thumb, Index, Middle, Ring, Pinky
 
 void setup() {
@@ -57,20 +60,10 @@ void loop() {
     }
   }
 }
-  <h3>Code for Arduino Uno</h3>
-  <pre>
-// Example Arduino code
-void setup() {
-  pinMode(13, OUTPUT);
-}
-
-void loop() {
-  digitalWrite(13, HIGH);
-  delay(1000);
-  digitalWrite(13, LOW);
-  delay(1000);
-}
   </pre>
+
+  <h3>Code for Python</h3>
+  <pre>
 import cv2
 import mediapipe as mp
 import serial
@@ -128,14 +121,6 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 arduino.close()
-  <h3>Code for Python</h3>
-  <pre>
-# Example Python code
-import time
-
-while True:
-    print("Hello from Python!")
-    time.sleep(1)
   </pre>
 
 </body>

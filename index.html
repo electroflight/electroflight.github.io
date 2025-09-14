@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,18 +7,31 @@
   <link rel="icon" href="favicon.jpg" type="image/png">
   <style>
     :root{
+      --accent-1: #19baff;
+      --accent-2: #7c4dff;
+      --muted: rgba(234,241,255,0.06);
+      --glass: rgba(255,255,255,0.04);
       --text: #eaf1ff;
-      font-family: "Inter", Arial, sans-serif;
+      --card-radius: 14px;
+      --shadow-1: 0 8px 30px rgba(8,10,30,0.6);
+      --glass-border: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
+
+    /* Page baseline */
+    * { box-sizing: border-box; }
+    html,body { height: 100%; margin:0; padding:0; }
     body{
-      margin:0;
       background:
         radial-gradient(800px 600px at 80% -10%, #1c1f5a66 0%, #0000 60%),
         radial-gradient(700px 500px at -20% 10%, #0f4f5f66 0%, #0000 60%),
         radial-gradient(600px 400px at 50% 100%, #14224d80 0%, #0000 60%),
         linear-gradient(180deg, #0e1330, #0b1020);
       color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+
 
     header {
       display:flex;

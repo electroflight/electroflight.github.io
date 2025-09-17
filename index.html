@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ElectroFlight Projects</title>
   <link rel="icon" href="favicon.jpg" type="image/png">
   <style>
@@ -38,7 +38,7 @@
       gap:16px;
       padding:18px 32px;
       position:relative;
-      z-index:10; /* баланд кардам, то ҳамеша болост */
+      z-index:10; /* боло гузоштам, то ҳамеша аз аксҳо пештар бошад */
       background:transparent;
     }
 
@@ -177,14 +177,16 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO / banner (ислоҳшуда) -->
   <section class="hero" role="banner" aria-label="ElectroFlight banner">
     <div class="hero-content">
       <div class="kicker">Balanced by</div>
       <h1>ElectroFlight</h1>
       <p>ElectroFlight brings you projects on electronics, robotics, drones, and inventions. Discover tutorials, codes, and guides crafted to help you learn and create new things. </p>
     </div>
-    <div class="hero-controls" aria-hidden="true"></div>
+
+    <div class="hero-controls" aria-hidden="true">
+    </div>
   </section>
 
   <!-- Gallery -->
@@ -216,6 +218,37 @@
       </a>
       <p>Project Code 4</p>
     </div>
+
+    <div class="gallery-item">
+      <a href="info5.html" target="_blank" rel="noopener">
+        <img src="photo5.jpg" alt="Project Photo 5">
+      </a>
+      <p>Project Code 5</p>
+    </div>
+
+    <div class="gallery-item">
+      <a href="info6.html" target="_blank" rel="noopener">
+        <img src="photo6.jpg" alt="Project Photo 6">
+      </a>
+      <p>Project Code 6</p>
+    </div>
+
+    <div class="gallery-item">
+      <a href="info7.html" target="_blank" rel="noopener">
+        <img src="photo7.jpg" alt="Project Photo 7">
+      </a>
+      <p>Project Code 7</p>
+    </div>
   </main>
+
+  <script>
+    // tiny JS for arrows (optional)
+    document.getElementById('prev')?.addEventListener('click', function(){
+      document.querySelector('.cards').scrollBy({ left: -220, behavior: 'smooth' });
+    });
+    document.getElementById('next')?.addEventListener('click', function(){
+      document.querySelector('.cards').scrollBy({ left: 220, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

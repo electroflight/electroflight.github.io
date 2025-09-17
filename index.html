@@ -1,8 +1,9 @@
-titletle!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" /in<title>ElectroFlight Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ElectroFlight Projects</title>
   <link rel="icon" href="favicon.jpg" type="image/png">
   <style>
     :root{
@@ -17,7 +18,6 @@ titletle!doctype html>
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    /* Page baseline */
     * { box-sizing: border-box; }
     html,body { height: 100%; margin:0; padding:0; }
     body{
@@ -31,7 +31,6 @@ titletle!doctype html>
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Header / top nav */
     header {
       display:flex;
       align-items:center;
@@ -39,7 +38,7 @@ titletle!doctype html>
       gap:16px;
       padding:18px 32px;
       position:relative;
-      z-index:6;
+      z-index:10; /* баланд кардам, то ҳамеша болост */
       background:transparent;
     }
 
@@ -55,7 +54,6 @@ titletle!doctype html>
       cursor:pointer;
     }
 
-    /* HERO */
     .hero {
       position:relative;
       min-height:520px;
@@ -63,17 +61,16 @@ titletle!doctype html>
       align-items:flex-start;
       justify-content:flex-start;
       padding:56px 64px;
-      background-image: url('banner.jpg'); /* <- put your banner image here */
+      background-image: url('banner.jpg');
       background-size:cover;
       background-position:center right;
       border-radius:18px;
       margin:24px;
       box-shadow: 0 40px 80px rgba(2,6,23,0.75);
       overflow:hidden;
-      z-index:2;
+      z-index:1;
     }
 
-    /* dark overlay gradient like example */
     .hero::before{
       content:"";
       position:absolute;
@@ -84,7 +81,7 @@ titletle!doctype html>
 
     .hero-content {
       position:relative;
-      z-index:3;
+      z-index:2;
       max-width:720px;
       padding-top:30px;
     }
@@ -115,84 +112,16 @@ titletle!doctype html>
       line-height:1.6;
     }
 
-    /* small hero controls on the right like arrows */
     .hero-controls {
       position:absolute;
       right:36px;
       top:48%;
-      z-index:6;
+      z-index:3;
       display:flex;
       gap:12px;
       transform:translateY(-50%);
     }
-    .control {
-      width:48px; height:48px; border-radius:12px; display:grid; place-items:center;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(6px);
-      border:1px solid rgba(255,255,255,0.04);
-      cursor:pointer;
-      box-shadow: 0 6px 20px rgba(4,10,30,0.5);
-    }
 
-
-/* "Top Videos" cards row (the middle strip with cards) */
-    .top-section {
-      margin: -60px 48px 0 48px; /* pull up under hero */
-      position:relative;
-      z-index:4;
-    }
-
-    .section-title {
-      font-size:20px;
-      font-weight:700;
-      margin:8px 14px 18px 14px;
-      color:#dfe9ff;
-    }
-
-    .cards {
-      display:flex;
-      gap:18px;
-      padding:22px 14px 36px 14px;
-      align-items:flex-start;
-      overflow-x:auto;
-      scrollbar-width: none; /* firefox */
-    }
-    .cards::-webkit-scrollbar { display:none; }
-
-    .card {
-      min-width:180px;
-      max-width:200px;
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow: var(--shadow-1);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      position:relative;
-      flex: 0 0 auto;
-    }
-
-    .card img {
-      width:100%;
-      height:120px;
-      object-fit:cover;
-      display:block;
-    }
-
-    .card .meta {
-      padding:12px;
-    }
-    .card .meta .title {
-      font-size:15px;
-      font-weight:700;
-      margin:0 0 6px 0;
-      color:#f8fbff;
-    }
-    .card .meta .author {
-      font-size:13px;
-      color:rgba(235,242,255,0.75);
-    }
-
-    /* Gallery row (user photos in a neat row) */
     .gallery {
       display:flex;
       gap:18px;
@@ -200,6 +129,8 @@ titletle!doctype html>
       align-items:center;
       justify-content:center;
       flex-wrap:wrap;
+      position:relative;
+      z-index:1;
     }
 
     .gallery-item {
@@ -227,21 +158,6 @@ titletle!doctype html>
       color:rgba(230,238,255,0.9);
       font-weight:600;
     }
-
-    /* Responsive */
-    @media (max-width:1000px) {
-      h1 { font-size:64px; }
-      .hero { min-height:420px; padding:40px; margin:18px; }
-      .cards { padding-left:8px; padding-right:8px; }
-      .gallery { padding-left:24px; padding-right:24px; }
-    }
-    @media (max-width:640px) {
-      nav { display:none; }
-      h1 { font-size:42px; }
-      .hero { padding:26px; min-height:360px; margin:12px; border-radius:12px; }
-      .gallery-item { width:46%; }
-      .card { min-width:160px; }
-    }
   </style>
 </head>
 <body>
@@ -261,20 +177,18 @@ titletle!doctype html>
     </nav>
   </header>
 
-  <!-- HERO / banner (keep banner image as you requested) -->videostion class="hero" role="banner" aria-label="ElectroFlight banner">
+  <!-- HERO -->
+  <section class="hero" role="banner" aria-label="ElectroFlight banner">
     <div class="hero-content">
       <div class="kicker">Balanced by</div>
       <h1>ElectroFlight</h1>
-<p>ElectroFlight brings you projects on electronics, robotics, drones, and inventions. Discover tutorials, codes, and guides crafted to help you learn and create new things. </p>
+      <p>ElectroFlight brings you projects on electronics, robotics, drones, and inventions. Discover tutorials, codes, and guides crafted to help you learn and create new things. </p>
     </div>
+    <div class="hero-controls" aria-hidden="true"></div>
+  </section>
 
-    <div class="hero-controls" aria-hidden="true">
-     </section>
-
-
-  <!-- Gallery: your photos in a row (keeps the info overlay removed so info in images not lost) -->
+  <!-- Gallery -->
   <main class="gallery" aria-label="Projects gallery">
-    <!-- Use your own photos here. I kept the filenames you used in your original markup. -->
     <div class="gallery-item">
       <a href="info1.html" target="_blank" rel="noopener">
         <img src="photo1.jpg" alt="Project Photo 1">
@@ -302,37 +216,6 @@ titletle!doctype html>
       </a>
       <p>Project Code 4</p>
     </div>
-
-    <div class="gallery-item">
-      <a href="info5.html" target="_blank" rel="noopener">
-        <img src="photo5.jpg" alt="Project Photo 5">
-      </a>
-      <p>Project Code 5</p>
-    </div>
-
-    <div class="gallery-item">
-      <a href="info6.html" target="_blank" rel="noopener">
-        <img src="photo6.jpg" alt="Project Photo 6">
-      </a>
-      <p>Project Code 6</p>
-    </div>
-
-    <div class="gallery-item">
-      <a href="info7.html" target="_blank" rel="noopener">
-        <img src="photo7.jpg" alt="Project Photo 7">
-      </a>
-      <p>Project Code 7</p>
-    </div>
   </main>
-
-  <script>
-    // tiny JS for arrows (optional)
-    document.getElementById('prev').addEventListener('click', function(){
-      document.querySelector('.cards').scrollBy({ left: -220, behavior: 'smooth' });
-    });
-    document.getElementById('next').addEventListener('click', function(){
-      document.querySelector('.cards').scrollBy({ left: 220, behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>
